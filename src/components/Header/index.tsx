@@ -10,14 +10,27 @@ interface HeaderProps {
   size?: 'small' | 'large';
 }
 
+const links = [
+  {
+    title: 'Listagem',
+    url: '/',
+  },
+  {
+    title: 'Importar',
+    url: '/import',
+  },
+];
+
 const Header: React.FC<HeaderProps> = ({ size = 'large' }: HeaderProps) => (
   <Container size={size}>
     <header>
       <img src={Logo} alt="GoFinances" />
       <nav>
-        {
-          // Todo
-        }
+        {links.map(link => (
+          <Link key={link.title} to={link.url}>
+            {link.title}
+          </Link>
+        ))}
       </nav>
     </header>
   </Container>
